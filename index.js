@@ -142,7 +142,7 @@ const renderLists = async () => {
 					<ul id="ul-${l.id}" class="list-group">
 						<li class="list-group-item">
 							<div>
-								<input id="title-${l.id}" type="text" placeholder="Title" />
+								<input class="fs-4" style="width: 100%" id="title-${l.id}" type="text" placeholder="Title" />
 								<input id="detail-${l.id}" type="text" placeholder="Details" />
 							</div>
 							<button id="addBtn-${l.id}" class="btn btn-success" style="width: 80px" type="button" onclick="addTask(${l.id})">+ Add</button>
