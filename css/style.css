@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#offcanvas {
+  width: 240px;
+  transition: 0.3s;
+}
+
+main {
+  min-height: 90vh;
+  display: flex;
+}
+
+#lists-div {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0px 10px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  margin-top: 45px;
+  flex-shrink: 0;
+}
+#lists-div .list {
+  width: 300px !important;
+  max-height: 500px;
+  overflow-y: auto;
+  margin: 10px;
+}
+
+input {
+  border: 0;
+  outline: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
