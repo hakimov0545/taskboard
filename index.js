@@ -613,8 +613,8 @@ const signup = async (event) => {
 		.value.trim();
 
 	users = await getUsers();
-	users.find((u) => u.username == username);
-	if (username) {
+	const user = users.find((u) => u.username == username);
+	if (user) {
 		toastError("Bunday username mavjud");
 		return;
 	}
