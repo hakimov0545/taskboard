@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Taskboard</title>
+		<title>TaskBoard</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta
@@ -39,46 +39,397 @@
 
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
-
 	<body>
-		<header>
-			<div class="container-fluid">
-				<button
-					class="btn fs-3"
-					id="offcanvas-open"
-					onclick="offcanvasShow()"
-				>
-					<i class="fa-solid fa-bars"></i>
-				</button>
+		<section class="" id="log-sect">
+			<div class="container bg-light">
+				<div class="row">
+					<div class="col-md-6 col-12" id="main-col">
+						<div class="ms-4">
+							<h2 class="text-light">TaskBoard</h2>
+							<div
+								class="btn-group mt-2"
+								role="group"
+								aria-label="Basic outlined example"
+							>
+								<button
+									type="button"
+									class="btn btn-outline-primary active"
+									id="show-sign-in"
+									onclick="showSignIn()"
+								>
+									Sign In
+								</button>
+								<button
+									type="button"
+									class="btn btn-outline-primary"
+									id="show-sign-up"
+									onclick="showSignUp()"
+								>
+									Sign Up
+								</button>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-md-6 col-12 d-flex align-items-center"
+						id="sign-in-div"
+					>
+						<form
+							class="w-100 text-center"
+							onsubmit="login(event)"
+						>
+							<i class="fa-solid fa-user-circle"></i>
+							<h2 class="text-primary">Log In</h2>
+							<div class="mb-3 w-100">
+								<label
+									for="username-login"
+									class="form-label"
+									>Username</label
+								>
+								<input
+									type="text"
+									class="form-control w-60 text-center"
+									id="username-login"
+									placeholder="Enter your username"
+								/>
+							</div>
+							<div class="mb-3 w-100">
+								<label
+									for="password-login"
+									class="form-label"
+									>Password</label
+								>
+								<input
+									type="text"
+									class="form-control w-60 text-center"
+									id="password-login"
+									placeholder="Enter your password"
+								/>
+							</div>
+							<button
+								type="submit"
+								class="btn btn-primary ps-5 pe-5 mt-2"
+							>
+								Log In
+							</button>
+							<p class="mt-3">
+								Don't have an account?
+								<a
+									class="text-dark"
+									onclick="showSignUp()"
+								>
+									Sign Up
+								</a>
+							</p>
+						</form>
+					</div>
+					<div
+						class="col-md-6 col-12 d-flex align-items-center d-none"
+						id="sign-up-div"
+					>
+						<form
+							class="w-100 text-center"
+							onsubmit="signup(event)"
+						>
+							<i class="fa-solid fa-user-circle"></i>
+							<h2 class="text-primary">Registration</h2>
+							<div class="mb-3 w-100">
+								<label
+									for="name-sign"
+									class="form-label"
+									>Name</label
+								>
+								<input
+									type="text"
+									class="form-control w-60 text-center"
+									id="name-sign"
+									placeholder="Enter your name"
+								/>
+							</div>
+							<div class="mb-3 w-100">
+								<label
+									for="last-name-sign"
+									class="form-label"
+									>Lats name</label
+								>
+								<input
+									type="text"
+									class="form-control w-60 text-center"
+									id="last-name-sign"
+									placeholder="Enter your last name"
+								/>
+							</div>
+							<div class="mb-3 w-100">
+								<label
+									for="username-sign"
+									class="form-label"
+									>Username</label
+								>
+								<input
+									type="text"
+									class="form-control w-60 text-center"
+									id="username-sign"
+									placeholder="Create a username"
+								/>
+							</div>
+							<div class="mb-3 w-100">
+								<label
+									for="password-sign"
+									class="form-label"
+									>Password</label
+								>
+								<input
+									type="password"
+									class="form-control w-60 text-center"
+									id="password-sign"
+									placeholder="Create a password"
+								/>
+							</div>
+							<button
+								type="submit"
+								class="btn btn-primary ps-5 pe-5 mt-2"
+							>
+								Sign Up
+							</button>
+							<p class="mt-3">
+								Have an account?
+								<a
+									class="text-dark"
+									onclick="showSignIn()"
+								>
+									Log In
+								</a>
+							</p>
+						</form>
+					</div>
+				</div>
 			</div>
-		</header>
-		<div
-			class="offcanvas offcanvas-start"
-			tabindex="-1"
-			id="offcanvas"
-			aria-labelledby="offcanvasLabel"
-		>
+		</section>
+		<section class="d-none" id="main-sect">
+			<header>
+				<div class="container-fluid">
+					<div class="d-flex justify-content-between">
+						<button
+							type="button"
+							class="btn fs-3"
+							id="offcanvas-open"
+							onclick="offcanvasShow()"
+						>
+							<i class="fa-solid fa-bars"></i>
+						</button>
+						<div>
+							<button
+								type="button"
+								class="btn text-secondary fs-2"
+								onclick="listsToggle()"
+							>
+								<i
+									id="lists-order-toggle"
+									class="fa-solid fa-grip-lines"
+								></i>
+							</button>
+							<div class="btn-group dropdown">
+								<button
+									type="button"
+									class="btn text-dark border-0 fs-5"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									<i
+										class="fa-regular fa-user-circle"
+									></i>
+								</button>
+								<ul class="dropdown-menu ps-3">
+									<li>
+										<button
+											class="btn border-0 p-0 dropdown-item"
+											data-bs-toggle="modal"
+											data-bs-target="#profile"
+											onclick="showProfile()"
+										>
+											<i
+												class="fa-regular fa-address-card"
+											></i>
+											Profile
+										</button>
+									</li>
+									<li>
+										<button
+											class="btn border-0 p-0 dropdown-item"
+											onclick="logout()"
+										>
+											<i
+												class="fa-solid fa-arrow-right-from-bracket"
+											></i>
+											Log out
+										</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
 			<div
-				class="offcanvas-header d-flex justify-content-between"
+				class="offcanvas offcanvas-start"
+				tabindex="-1"
+				id="offcanvas"
+				aria-labelledby="offcanvasLabel"
 			>
-				<h5 class="offcanvas-title" id="offcanvasLabel">
-					Boards
-				</h5>
-				<button
-					type="button"
-					class="btn-close text-light"
-					onclick="offcanvasShow()"
+				<div
+					class="offcanvas-header d-flex justify-content-between"
 				>
-					.
-				</button>
+					<h3 class="offcanvas-title" id="offcanvasLabel">
+						Boards
+					</h3>
+					<button
+						type="button"
+						class="btn-close text-light"
+						onclick="offcanvasShow()"
+					>
+						.
+					</button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="list-group" id="board-ul"></ul>
+				</div>
 			</div>
-			<div class="offcanvas-body">
-				<ul class="list-group" id="board-ul"></ul>
+			<div
+				id="board-name"
+				class="mt-3"
+				style="max-width: 1440px"
+			>
+				<div class="container-fluid">
+					<div
+						class="d-flex justify-content-between align-items-center"
+					>
+						<h2
+							class="fs-3 fw-bold ms-3 mt-2 text-secondary"
+							style="width: 500px"
+							id="board-title"
+						>
+							Board
+						</h2>
+						<div class="btn-group dropend">
+							<button
+								type="button"
+								class="btn text-secondary border-0"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								<i
+									class="fa-solid fa-ellipsis-vertical"
+								></i>
+							</button>
+							<ul class="dropdown-menu ps-3">
+								<li>
+									<button
+										class="btn border-0 p-0 dropdown-item"
+										onclick="showPhotos()"
+										id="setBgBtn"
+									>
+										<i
+											class="fa-solid fa-image me-2"
+										></i>
+										Set background
+									</button>
+								</li>
+								<li>
+									<button
+										class="btn border-0 p-0 text-danger dropdown-item"
+										onclick="deleteBoardOpen()"
+									>
+										<i
+											class="fa-solid fa-trash-can me-2"
+										></i
+										>Delete Board
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<main>
-			<div id="lists-div"></div>
-		</main>
+			<main id="main" class="d-inline-block">
+				<div id="lists-div"></div>
+			</main>
+			<div class="modal" id="bg-modal" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">
+								Set Background
+							</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body row" id="bg-row"></div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal"
+							>
+								Close
+							</button>
+							<button
+								type="button"
+								class="btn btn-primary"
+							>
+								Save changes
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="modal fade"
+				id="profile"
+				tabindex="-1"
+				aria-labelledby="profileLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h2 class="modal-title" id="profileLabel">
+								Profile
+							</h2>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div
+							class="modal-body"
+							id="profile-body"
+						></div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal"
+							>
+								Close
+							</button>
+							<button
+								type="button"
+								class="btn btn-primary"
+								onclick="saveProfile()"
+							>
+								Save changes
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<!-- Bootstrap JavaScript Libraries -->
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -100,3 +451,4 @@
 		<script src="./index.js"></script>
 	</body>
 </html>
+
