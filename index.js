@@ -612,6 +612,13 @@ const signup = async (event) => {
 		.getElementById("last-name-sign")
 		.value.trim();
 
+	users = await getUsers();
+	users.find((u) => u.username == username);
+	if (username) {
+		toastError("Bunday username mavjud");
+		return;
+	}
+
 	await axios.post("https://cc69ac6756e6e20e.mokky.dev/users", {
 		username: username,
 		pass: password,
