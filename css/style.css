@@ -36,6 +36,7 @@ main {
   padding-top: 10px;
 }
 main #lists-div {
+  min-height: 570px;
   height: 100%;
   display: flex;
   gap: 15px;
@@ -43,7 +44,7 @@ main #lists-div {
   flex-direction: row;
   overflow: auto;
   flex-shrink: 0;
-  padding-bottom: 0;
+  padding-bottom: 30px;
 }
 main #lists-div .list {
   min-width: 400px !important;
