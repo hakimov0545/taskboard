@@ -1,8 +1,117 @@
-body {
+html {
+	width: 100%;
 	margin: 0;
 	padding: 0;
-	overflow-y: hidden;
+}
+
+body {
+	width: 100%;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+
+	a {
+		cursor: pointer;
+	}
+}
+
+#main-sect {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-size: cover !important;
+	background-position: center !important;
+}
+
+main {
+	flex: 1;
+	overflow: auto;
+	padding-inline: 20px;
+	margin-top: 25px;
+	padding-top: 10px;
+
+	#lists-div {
+		height: 100%;
+		display: flex;
+		gap: 15px;
+		align-items: flex-start;
+		flex-direction: row;
+		overflow: auto;
+
+		flex-shrink: 0;
+		padding-bottom: 0;
+
+		.list {
+			min-width: 400px !important;
+			max-height: 500px;
+			overflow-y: auto;
+			margin-inline: auto;
+			background-color: #fff;
+		}
+	}
+}
+
+#log-sect {
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 60px;
+	background-image: url("https://wallpapershigh.com/wp-content/uploads/background-login-page-1.webp");
+	background-size: cover !important;
+	background-repeat: no-repeat;
+
+	.container {
+		height: 90%;
+		border: 5px solid white;
+		border-radius: 20px;
+
+		.row {
+			height: 100%;
+
+			input {
+				width: 60% !important;
+				margin-inline: auto;
+			}
+		}
+
+		#main-col {
+			height: 100%;
+			min-height: 610px;
+			border-radius: 15px 0 0 15px;
+			display: flex;
+			align-items: center;
+			background-image: url("https://www.ppt-backgrounds.net/thumbs/wallpaper-web-fractal21s-3dfiction-images-4k-full---design-ppt.jpeg");
+			// background-position: right;
+
+			h2 {
+				font-size: 60px;
+			}
+		}
+
+		.fa-user-circle {
+			font-size: 70px;
+			color: #0d6efd;
+			margin-bottom: 10px;
+		}
+	}
+
+	#sign-up-div {
+		padding-block: 25px;
+	}
+}
+
+header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	left: 0;
 	background-color: rgb(243, 243, 243);
+	z-index: 10;
 }
 
 * {
@@ -12,29 +121,30 @@ body {
 #offcanvas {
 	width: 240px;
 	transition: 0.3s;
-}
 
-main {
-	display: flex;
-}
+	li {
+		cursor: pointer;
+		border: 0;
+	}
+	li:hover {
+		background-color: rgb(245, 245, 245);
+		border-radius: 10px;
+		overflow: hidden;
+		input {
+			background-color: rgb(245, 245, 245);
+		}
+	}
+	li.active {
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	li.active:hover {
+		background-color: #0d6efd;
+	}
 
-#lists-div {
-	display: flex;
-	align-items: flex-start;
-	flex-direction: row;
-	justify-content: flex-start;
-	padding: 0px 10px;
-	overflow-y: hidden;
-	overflow-x: auto;
-	margin-top: 45px;
-	flex-shrink: 0;
-
-	.list {
-		width: 300px !important;
-		max-height: 500px;
-		overflow-y: auto;
-		margin: 10px;
-		background-color: #fff;
+	h5 {
+		padding: 0;
+		margin: 0;
 	}
 }
 
@@ -45,5 +155,15 @@ input {
 
 p {
 	margin-bottom: 0;
+}
+
+@media screen and (max-width: 700px) {
+	#lists-div {
+		margin-left: 0;
+	}
+	.list {
+		width: 90% !important;
+		margin-inline: auto;
+	}
 }
 
