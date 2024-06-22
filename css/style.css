@@ -1,8 +1,105 @@
-body {
+html {
+  width: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+body a {
+  cursor: pointer;
+}
+
+#main-sect {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+main {
+  flex: 1;
+  overflow: auto;
+  padding-inline: 20px;
+  margin-top: 25px;
+  padding-top: 10px;
+}
+main #lists-div {
+  height: 100%;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  flex-direction: row;
+  overflow: auto;
+  flex-shrink: 0;
+  padding-bottom: 0;
+}
+main #lists-div .list {
+  min-width: 400px !important;
+  max-height: 500px;
+  overflow-y: auto;
+  margin-inline: auto;
+  background-color: #fff;
+}
+
+#log-sect {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 60px;
+  background-image: url("https://wallpapershigh.com/wp-content/uploads/background-login-page-1.webp");
+  background-size: cover !important;
+  background-repeat: no-repeat;
+}
+#log-sect .container {
+  height: 90%;
+  border: 5px solid white;
+  border-radius: 20px;
+}
+#log-sect .container .row {
+  height: 100%;
+}
+#log-sect .container .row input {
+  width: 60% !important;
+  margin-inline: auto;
+}
+#log-sect .container #main-col {
+  height: 100%;
+  min-height: 610px;
+  border-radius: 15px 0 0 15px;
+  display: flex;
+  align-items: center;
+  background-image: url("https://www.ppt-backgrounds.net/thumbs/wallpaper-web-fractal21s-3dfiction-images-4k-full---design-ppt.jpeg");
+}
+#log-sect .container #main-col h2 {
+  font-size: 60px;
+}
+#log-sect .container .fa-user-circle {
+  font-size: 70px;
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
+#log-sect #sign-up-div {
+  padding-block: 25px;
+}
+
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
   background-color: rgb(243, 243, 243);
+  z-index: 10;
 }
 
 * {
@@ -13,28 +110,28 @@ body {
   width: 240px;
   transition: 0.3s;
 }
-
-main {
-  display: flex;
+#offcanvas li {
+  cursor: pointer;
+  border: 0;
 }
-
-#lists-div {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 0px 10px;
-  overflow-y: hidden;
-  overflow-x: auto;
-  margin-top: 45px;
-  flex-shrink: 0;
+#offcanvas li:hover {
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+  overflow: hidden;
 }
-#lists-div .list {
-  width: 300px !important;
-  max-height: 500px;
-  overflow-y: auto;
-  margin: 10px;
-  background-color: #fff;
+#offcanvas li:hover input {
+  background-color: rgb(245, 245, 245);
+}
+#offcanvas li.active {
+  border-radius: 10px;
+  overflow: hidden;
+}
+#offcanvas li.active:hover {
+  background-color: #0d6efd;
+}
+#offcanvas h5 {
+  padding: 0;
+  margin: 0;
 }
 
 input {
@@ -46,4 +143,15 @@ p {
   margin-bottom: 0;
 }
 
+@media screen and (max-width: 700px) {
+  #lists-div {
+    margin-left: 0;
+  }
+  .list {
+    width: 90% !important;
+    margin-inline: auto;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
+
